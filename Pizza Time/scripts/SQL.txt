@@ -1,0 +1,3 @@
+Tables needed:
+Customer information - name, address, telephone, pizza_order, time_ordered
+Customer pizza history - address, size, pizza_type, sauce, crust, price, date_ordered, time_ordered

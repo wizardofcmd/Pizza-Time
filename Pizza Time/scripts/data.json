@@ -1,0 +1,29 @@
+data = {'pizzaSize':[
+	{'name':'Small','price':5.00},
+	{'name':'Medium','price':8.00},
+	{'name':'Large','price':10.00},
+	{'name':'Extra Large','price':15.00}
+],
+'crust':[
+	{'name':'Thin','price':1.00},
+	{'name':'Normal','price':1.50},
+	{'name':'Thick','price':2.00},
+	{'name':'Stuffed Cheese','price':2.00}
+],
+'sauce':[
+	{'name':'Tomato','price':0.50},
+	{'name':'BBQ','price':1.00},
+	{'name':'Pesto','price':1.00},
+	{'name':'Salsa','price':1.50},
+	{'name':'Bechamel','price':2.00}
+],
+'pizzaType':[
+	{'name':'Neapolitan Pizza','ingredients':['Cheese','Basil'],'price':2.50},
+	{'name':'Pepperoni & Cheese Pizza','ingredients':['Cheese','Pepperoni'],'price':2.50},
+	{'name':'Plain Pepperoni Pizza','ingredients':'Pepperoni','price':1.50},
+	{'name':'Pineapple Pizza','ingredients':['Cheese','Pineapple'],'price':2.50},
+	{'name':'Meaty Pizza','ingredients':['Cheese','Ham','Pepperoni'],'price':3.50},
+	{'name':'Fishy Pizza','ingredients':['Cheese','Tuna'],'price':2.50},
+	{'name':'Nasty Suprise','ingredients':['Cheese','Basil','Tuna','Pineapple'],'price':4.50}
+	]
+}

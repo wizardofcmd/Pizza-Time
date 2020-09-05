@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+		</title>
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<link rel = "stylesheet" href="style.css">
+		<script src = "data.json"></script>
+		<script src = "data.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<img src = "Logo.png">
+			<div id = "text">Pizza Time Ordering Service</div>
+		</nav>
+		<div class = "container">
+			<div id="top-row" class="row">
+				<div id="top-left" class="col-4">
+					<p class = "description">Step 1: Choose from all of our sizes! Are you looking for a snack, or a feast?</p>
+					<img class="img" src="ruler.png">
+				</div>
+				<div id="top-right" class="col-8">
+					<form class = "was-validated">
+						<div class = "dropdowns">
+							<div class = "form-group">
+								<select id="size" class = "custom-select" onchange="doSize()" required>
+									<option value = "null">Open this select menu</option>
+									<script>
+										for(i=0;i<countPizzaSize;i++){
+											document.write('<option value = "'+(i+1)+'">'+mydata.pizzaSize[i].name+' (&euro;'+mydata.pizzaSize[i].price+')'+'</option>');
+										}
+									</script>
+								</select>
+								<div class = "invalid-feedback">Please select a pizza size</div>
+							</div>
+						</div>
+					</form>
+					<p id="sizePrice" class="description">Price:</p>
+				</div>
+			</div>
+			<div class="row">
+				<div id="second-left" class="col-4">
+					<p class = "description">Step 2: Now browse through our pizza types! Our toppings are prepared on the day, and never frozen!</p>
+					<img class="img" src="type.png">
+				</div>
+				<div id="second-right" class="col-8">
+					<form class = "was-validated">
+						<div class = "dropdowns">
+							<div class = "form-group">
+								<select id="type" class = "custom-select" onchange="doType()" required>
+									<option value = "null">Open this select menu</option>
+									<script>
+										for(i=0;i<countPizzaType;i++){
+											document.write('<option value = "'+(i+1)+'">'+mydata.pizzaType[i].name+' (&euro;'+mydata.pizzaType[i].price+')'+'</option>');
+										}										
+									</script>
+								</select>
+								<div class = "invalid-feedback">Please select a pizza type</div>
+							</div>
+						</div>
+					</form>					
+					<p id="displayIn" class="description">Pizza Contains:</p>
+					<p id="typePrice" class="description">Price:</p>
+				</div>
+			</div>	
+			<div class="row">
+				<div id="mid-left" class="col-4">
+					<p class = "description">Step 3: What sauce would you like? It makes the pizza!</p>
+					<img class="img" src="Sauce.png">
+				</div>
+				<div id="mid-right" class="col-8">
+					<form class = "was-validated">
+						<div class = "dropdowns">
+							<div class = "form-group">
+								<select id="sauce" class = "custom-select" onchange="doSauce()" required>
+									<option value = "null">Open this select menu</option>
+									<script>
+										for(i=0;i<countSauce;i++){
+											document.write('<option value = "'+(i+1)+'">'+mydata.sauce[i].name+' (&euro;'+mydata.sauce[i].price+')'+'</option>');
+										}
+									</script>
+								</select>
+								<div class = "invalid-feedback">Please select a pizza sauce</div>
+							</div>
+						</div>
+					</form>
+					<p id="saucePrice" class="description">Price:</p>
+				</div>
+			</div>
+			<div class="row">
+				<div id="bot-left" class="col-4">
+					<p class = "description">Step 4: Okay now lastly, any special crust fillings? Fillings stay in the crust 80% of the time!</p>
+					<img class="img" src="Crust.png">
+				</div>
+				<div id="bot-right" class="col-8">
+					<form class = "was-validated">
+						<div class = "dropdowns">
+							<div class = "form-group">
+								<select id="crust" class = "custom-select" onchange="doCrust()" required>
+									<option value = "null">Open this select menu</option>
+									<script>
+										for(i=0;i<countCrust;i++){
+											document.write('<option value = "'+(i+1)+'">'+mydata.crust[i].name+' (&euro;'+mydata.crust[i].price+')'+'</option>');
+										}
+									</script>
+								</select>
+								<div class = "invalid-feedback">Please select a pizza crust</div>
+							</div>							
+						</div>
+					</form>	
+					<p id="crustPrice" class="description">Price:</p>					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-9">
+						<div class="col-md-12">
+							<form>
+							  <div class="form-row">
+								<div class="col-md-4">
+								</div>
+								<div class="col-md-6">
+								  <input type="text" class="form-control" placeholder="Name" id="name">
+								</div>
+							  </div>
+							</form>
+						</div>
+						<div class="col-md-12">
+							<form>
+								<div class="form-row">
+								<div class="col-md-4">
+								</div>
+								<div class="col-md-6">
+								  <input type="text" class="form-control" placeholder="Address" id="address">
+								</div>
+							  </div>
+							</form>
+						</div>
+						<div class="col-md-12">
+							<form>
+							  <div class="form-row">
+								<div class="col-md-4">
+								</div>
+								<div class="col-md-6">
+								  <input type="text" class="form-control" placeholder="Telephone" id="telephone">
+								</div>
+							  </div>
+							</form>
+						</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">				
+				</div>
+				<div id="bot-submit" class="col-8">
+					<p id="totalCost" class="description">Total Cost: &euro;</p>
+					<button onclick="submit()" class="btn btn-primary" type="submit" id="button">Submit order!</button>
+				</div>
+			</div>
+		</div>
+		<div id = "copyFooter">
+			<div id = "iconHolder">
+				<a href="https://www.facebook.com/">
+					<img src="Facebook.png" class="icons" alt="social"/>
+				</a>
+				<a href="https://twitter.com/">
+					<img src="Twitter.jpg" class="icons" alt="bird"/>
+				</a>
+				<a href="https://www.instagram.com/">
+					<img src="Instagram.png" class="icons" alt="pictureMedia"/>
+				</a>
+				<p id = "copyright-text">Copyright © Pizza Time, Inc. All rights reserved.</p>
+			</div>
+		</div>
+	</body>
+</html>
